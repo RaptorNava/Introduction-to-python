@@ -1,0 +1,211 @@
+print("Calculator")
+def addition(x, y):
+    return x + y
+
+# Функция для вычитания
+def subtraction(x, y):
+    return x - y
+
+# Функция для умножения
+def multiplication(x, y):
+    return x * y
+
+# Функция для деления
+def segmentation(x, y):
+    if y == 0:
+        return "Don't try to do it"
+    return x / y
+def calculator():
+    print("Choose operation")
+    print("1:addition")
+    print("2:subtraction")
+    print("3:multiplication")
+    print("4:segmentation")
+    
+choice = input("Enter number of operation (1/2/3/4):")
+if choice in ['1', '2', '3', '4']:
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    
+if choice == '1':
+            print(f"{num1} + {num2} = {addition(num1, num2)}")
+elif choice == '2':
+            print(f"{num1} - {num2} = {subtraction(num1, num2)}")
+elif choice == '3':
+            print(f"{num1} * {num2} = {multiplication(num1, num2)}")
+elif choice == '4':
+            print(f"{num1} / {num2} = {segmentation(num1, num2)}")
+else:
+        print("Error value. Please enter correct")
+
+
+
+num_inp = int(input("Enter your number: ")) 
+if num_inp % 2 == 0:
+    print("Number is even")
+else: 
+    print("Number is odd")
+num1 = float(input("Enter 1st number: "))
+num2 = float(input("Enter 2nd number: "))
+num3 = float(input("Enter 3rd number: "))
+
+if num1 > num2 and num1 > num3:
+    print("The first number is largest")
+elif num2 > num1 and num2 > num3:
+    print("The second number is largest")
+elif num3 > num1 and num3 > num2: 
+    print("The third number is largest")
+else: 
+    print("Invalid prompt. Please write again")
+
+
+
+let_inp = str(input("Enter your letter: "))
+if let_inp == "a" or let_inp == "o" or let_inp == "e" or let_inp == "i" or let_inp == "u":
+    print("The letter is vowel")
+else: 
+    print("The letter is consonant")
+
+
+
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+num3 = float(input("Enter third number: "))
+num4 = float(input("Enter fourth number: "))
+num5 = float(input("Enter fifth number: "))
+list_num = [num1, num2, num3, num4, num5]
+print(list_num)
+print(list_num[0], list_num[4])
+new_num = float(input("Enter new number: "))
+list_num.append(new_num)
+del list_num[2]
+print(list_num)
+
+
+
+names_mc = ("Alice", "Jack", "Jhonson", "Emma")
+first, second, third, fourth = names_mc
+print(first)
+print(second)
+print(third)
+print(fourth)
+
+
+num = int(input("Enter your number: "))
+if num == 0:
+    print("Is Zero")
+elif num > 0: 
+    print("Is positive")
+elif num < 0:
+    print("Is negative")
+else: 
+    print("Invalid value. Please enter again")
+
+
+
+ask = int(input("What you will convert? Choose number: 1. Celsius 2. Farengheit:  "))
+if ask == 1: 
+    deg_cel = float(input("Enter how many celsius you need convert to farengheit:  "))
+    feg_cel = deg_cel * 1.8 + 32
+    print(feg_cel)
+elif ask == 2:
+    feg_cel = float(input("Enter how many farengheit you need convert to celsius:  "))
+    deg_cel = float(float(feg_cel - 32) * 5) / 9
+    print(deg_cel)
+else: print("Invalid")
+
+
+Bubble sort
+nums = [1, 14, 4, 141, 0, 1424, -141, 546, 747, 1488]
+len(nums)
+for i in range (0, len(nums)-1):
+    for index in range(0, len(nums)-1):
+        if nums[index] > nums[index + 1]:
+            swap = nums[index]
+            nums[index] = nums[index+1]
+            nums[index+1] = swap
+print(nums)
+
+
+
+Selection sort
+numbers = [9, 6, 7, 8 , 5, 4, 1, 2, 3, 0]
+for i in range(0, len(numbers)):
+    indexing = i 
+    for index in range(i+1, len(numbers)):
+        if numbers[index] < numbers[indexing]:
+            indexing = index
+    swap = numbers[i]
+    numbers[i] = numbers[indexing]
+    numbers[indexing] = swap
+print(numbers)
+
+
+FzBz_inp = int(input("Enter number from 1 to N: "))
+if FzBz_inp % 3 == 0 and FzBz_inp % 5 == 0: 
+    print(FzBz_inp, "is FizzBuzz")
+elif FzBz_inp % 5 == 0: 
+    print(FzBz_inp, "is Buzz")
+elif FzBz_inp % 3 == 0: 
+    print(FzBz_inp, "is Fizz")
+else: 
+    print("Invalid prompt, write again")
+
+
+
+numbers = [1, 42, 4, 23, 89, 56, 31, 40, 0]
+even = 0
+odd = 0
+for num in numbers: 
+    if num % 2 == 0: 
+        even += 1
+    else: 
+        odd += 1
+print('Even numbers:', even , 'odd numbers; ', odd)
+
+
+
+
+nums = [1, 31, 4, 1, 42, 53, 4, 53, 5, 6, 7]
+del nums[3]
+del nums[5]
+del nums[5]
+print(nums)
+
+
+
+arr = [10, 5, 3, 4, 3, 5, 6]
+def first_repeating_element(arr):
+    for num in arr:  
+        if arr.count(num) > 1:  
+            return num
+    return None 
+
+
+print(first_repeating_element(arr))
+
+
+
+
+num1 = [31, 4, 41, 453, 3, 36, "Ryan"]
+num2 = ["Rhin", 31, 53, 46, 63, 231, 0]
+num3 = []
+for i in num1:
+    if i in num2:
+        num3.append(i)
+print(num3)
+
+
+
+
+for num in range(2, 27):
+    flag = True
+    for divisible in range(2, num+1):
+        if num % divisible == 0 and num != divisible:
+         flag = False
+    if flag == True:
+        print("This number is prime: ", num)
+
+
+
+
