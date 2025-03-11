@@ -1,0 +1,153 @@
+import math
+
+print("Welcome to calculator")
+oper = int(input("Enter number of type operation: \n 1. Math \n 2. Physic \n 3. Converter:  "))
+
+if oper == 1:
+    ask = int(input("What type of math you need? \n 1. logarithm \n 2. quadratic equation \n 3. prime number:   "))
+    
+    if ask == 1:
+        bas = int(input("Enter the base of the logarithm: "))
+        arg = int(input("Enter the argument of the logarithm: "))
+        
+        if bas <= 1 or arg <= 0:
+            print("Base must be greater than 1 and argument must be positive.")
+        else:
+            result = None
+            for i in range(1, 100): 
+                if bas ** i == arg:
+                    result = i
+                    break
+            if result is not None:
+                print(f"Logarithm of {arg} with base {bas} is: {result}")
+            else:
+                print(f"No exact integer logarithm found for {arg} with base {bas}.")
+    
+    elif ask == 2:  # Решение квадратного уравнения
+        anum = int(input("Enter first value (a): "))
+        bnum = int(input("Enter second value (b): "))
+        cnum = int(input("Enter third value (c): "))
+        
+        discr = bnum**2 - 4*anum*cnum 
+        
+        if discr > 0:  
+            udis = math.sqrt(discr)  
+            x1num = (-bnum - udis) / (2 * anum)
+            x2num = (-bnum + udis) / (2 * anum)  
+            print(f"Roots of equation are: {x1num} and {x2num}")
+        
+        elif discr == 0: 
+            xnum = -bnum / (2 * anum) 
+            print(f"Root of equation is: {xnum}")
+        
+        elif discr < 0:  
+            print("This programm was been created by freshmen. How it'll find you negative disriminant?")
+    elif ask == 3:
+        print("Its programm which can count all prime numbers before N")
+        prom = int(input("Enter number: "))
+        for num in range(2, prom):
+            flag = True
+            for divisible in range(2, num+1):
+                if num % divisible == 0 and num != divisible:
+                    flag = False
+            if flag == True:
+                print("This number is prime: ", num)
+    else: 
+        print("Invalid selection for math type.")
+elif oper == 3: 
+    tp = int(input("Enter the number of type operation: \n 1. Currency \n 2. Imperial system to International \n 3. Time \n 4. Speed \n 5. Kelvin to celsius \n You choose number: "))
+    if tp == 1:
+        currency_rates = {
+            "USD": 1.0,   
+            "YEN": 147.43,
+            "RUB": 85.5,
+            "YUAN": 7.26,
+            "EUR": 0.92,
+            "GBP": 0.77,    
+            "SOM": 87.45,
+            "KZT": 487.91,
+            "TL": 36.59,
+            "Dirham": 3.67
+        }
+        
+        
+        print("In program you can convert:")
+        for key in currency_rates:
+            print(f"{key}")
+        
+        
+        cur_from = input("Please choose the currency you will convert from: ").upper()
+        cur_to = input("Please choose the currency you want to convert to: ").upper()
+        
+        
+        if cur_from in currency_rates and cur_to in currency_rates:
+            amount = float(input(f"Enter amount in {cur_from}: "))
+            
+           
+            converted_amount = amount * (currency_rates[cur_to] / currency_rates[cur_from])
+            
+            print(f"{amount} {cur_from} is equal to {converted_amount:.2f} {cur_to}")
+    elif tp == 2:
+        # Функция для конвертации длины
+        def length_converter(value, from_unit, to_unit):
+            # Коэффициенты для конвертации
+            conversion_factors = {
+                ("in", "mm"): 25.4,
+                ("in", "cm"): 2.54,
+                ("in", "m"): 0.0254,
+                ("in", "km"): 0.0000254,
+                ("ft", "mm"): 304.8,
+                ("ft", "cm"): 30.48,
+                ("ft", "m"): 0.3048,
+                ("ft", "km"): 0.0003048,
+                ("yd", "mm"): 914.4,
+                ("yd", "cm"): 91.44,
+                ("yd", "m"): 0.9144,
+                ("yd", "km"): 0.0009144,
+                ("mi", "mm"): 1609344,
+                ("mi", "cm"): 160934.4,
+                ("mi", "m"): 1609.344,
+                ("mi", "km"): 1.609344,
+                ("mm", "in"): 1 / 25.4,
+                ("cm", "in"): 1 / 2.54,
+                ("m", "in"): 1 / 0.0254,
+                ("km", "in"): 1 / 0.0000254,
+                ("mm", "ft"): 1 / 304.8,
+                ("cm", "ft"): 1 / 30.48,
+                ("m", "ft"): 1 / 0.3048,
+                ("km", "ft"): 1 / 0.0003048,
+                ("mm", "yd"): 1 / 914.4,
+                ("cm", "yd"): 1 / 91.44,
+                ("m", "yd"): 1 / 0.9144,
+                ("km", "yd"): 1 / 0.0009144,
+                ("mm", "mi"): 1 / 1609344,
+                ("cm", "mi"): 1 / 160934.4,
+                ("m", "mi"): 1 / 1609.344,
+                ("km", "mi"): 1 / 1.609344
+            }
+        
+            
+            if (from_unit, to_unit) not in conversion_factors:
+                print("Invalid units for conversion.")
+                return None
+        
+            
+            conversion_factor = conversion_factors[(from_unit, to_unit)]
+            return value * conversion_factor
+        
+        
+        
+        print("Welcome to the length converter!")
+        
+        
+        from_unit = input("Enter the unit you want to convert from (in, ft, yd, mi, mm, cm, m, km): ").lower()
+        to_unit = input("Enter the unit you want to convert to (in, ft, yd, mi, mm, cm, m, km): ").lower()
+        value = float(input(f"Enter the value in {from_unit}: "))
+        
+        
+        result = length_converter(value, from_unit, to_unit)
+        
+        
+        if result is not None:
+            print(f"{value} {from_unit} is equal to {result:.4f} {to_unit}")
+else: print("Are you invalid?")
