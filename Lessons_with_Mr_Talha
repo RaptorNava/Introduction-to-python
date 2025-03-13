@@ -241,3 +241,13 @@ sampleDict = {
     }
 }
 print(sampleDict)
+
+sample_dict = { 
+    "name": "Kek",
+    "age": 23,
+    "city": "New-Delhi",
+    "salary": 4500
+    }
+keys = ["name", "salary"]
+sample_dict = {key: sample_dict[key] for key in keys}
+print(sample_dict)
