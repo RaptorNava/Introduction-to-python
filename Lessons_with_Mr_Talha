@@ -251,3 +251,21 @@ sample_dict = {
 keys = ["name", "salary"]
 sample_dict = {key: sample_dict[key] for key in keys}
 print(sample_dict)
+
+def even_odd(element, even, odd):  
+    if element % 2 == 0:
+        even += 1   
+    else:
+        odd += 1   
+    return even, odd  
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+even = 0 
+odd = 0   
+
+
+for element in nums:
+    even, odd = even_odd(element, even, odd)
+
+print(even)  
+print(odd)   
